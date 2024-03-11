@@ -11,21 +11,23 @@ JDK_1_7 = "1.7"
 JDK_1_6 = "1.6"
 
 def check_jdk_version():
-    commands = [
-          "java",
-          "-version"
-      ]
-    child = subprocess.Popen(commands, stderr=subprocess.PIPE)
+    # commands = [
+    #       "java",
+    #       "-version"
+    #   ]
+    # child = subprocess.Popen(commands, stderr=subprocess.PIPE)
 
-    jdk_version = None
-    for line in child.stderr:
-        if 'java version' in line:
-            if '1.6' in line:
-                jdk_version = JDK_1_6
-            else:
-                jdk_version = JDK_1_7
+    # jdk_version = None
+    # for line in child.stderr:
+    #     if 'java version' in line:
+    #         if '1.6' in line:
+    #             jdk_version = JDK_1_6
+    #         else:
+    #             jdk_version = JDK_1_7
 
-    child.wait()
+    # child.wait()
+
+    jdk_version = JDK_1_7
 
     if jdk_version is None:
         raise cocos.CCPluginError(MultiLanguage.get_string('COMPILE_ERROR_NO_VALID_JDK'),
